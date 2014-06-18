@@ -1,0 +1,43 @@
+a {
+    color: dimgray;
+    text-decoration: none;
+    border-bottom-color: white;
+}
+
+p {
+    font: 500% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    border-bottom-color: white;
+    -webkit-transition: color 1s, border-color 3s;
+    -moz-transition: color 1s, border-color 3s;
+    -o-transition: color 1s, border-color 3s;
+    transition: color 1s, border-color 3s;
+}
+
+#jedi p:hover {
+    color: red;
+    border-bottom: 2px solid red;
+}
+
+#padawan p:hover {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+
+#jedi, #padawan {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+#jedi {
+    margin-top: 10%;
+    margin-left: 30%;
+    float: left;
+}
+
+#padawan {
+    margin-top: 10%;
+    margin-right: 25%;
+    float: right;
+}
