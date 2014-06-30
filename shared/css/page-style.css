@@ -4,7 +4,7 @@ a {
     border-bottom-color: white;
 }
 
-p {
+p, .newTerms {
     font: 500% "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 100;
     border-bottom-color: white;
@@ -12,6 +12,16 @@ p {
     -moz-transition: color 1s, border-color 3s;
     -o-transition: color 1s, border-color 3s;
     transition: color 1s, border-color 3s;
+}
+
+.newTerms {
+    font: 100% "Open Sans", sans-serif;
+}
+
+#jedi, #padawan, .newTerms {
+    display: block;
+    position: relative;
+    text-align: center;
 }
 
 #jedi p:hover {
@@ -24,13 +34,9 @@ p {
     border-bottom: 2px solid blue;
 }
 
-#jedi, #padawan {
-    display: inline-block;
-    position: relative;
-    text-align: center;
-}
 
-#jedi {
+
+#jedi, #termsLeft {
     margin-top: 10%;
     margin-left: 30%;
     float: left;
@@ -40,4 +46,16 @@ p {
     margin-top: 10%;
     margin-right: 25%;
     float: right;
+}
+
+#termsLeft {
+    float: right;
+    margin-right: 60%;
+    color: #87CEEB;
+}
+
+#termsRight {
+    float: left;
+    margin-left: 60%;
+    color: #F08080;
 }
