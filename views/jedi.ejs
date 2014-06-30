@@ -3,8 +3,35 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title><%= title %></title>
+    <link rel="stylesheet" href="/css/page-style.css" type="text/css">
+    <script type="text/javascript" src="/js/page-interactive.js"></script>
 </head>
 <body>
-<h1>Hi Jedi</h1>
+<div class="addTerm">
+    <form action="/jedi.js" method="POST" id="addBlockForm">
+        <div class="formItem">
+            <input class="termInput" type="text" name="newTerm" value="" placeholder="">
+        </div>
+        <div class="formActions">
+            <input class="submitTermAction" type="submit" name="" value="Добавить">
+        </div>
+    </form>
+</div>
+<div class="allTerms">
+    <% var allAnswers = terms.getAllAnswers(); %>
+    <% for(var i = 0; i < allAnswers.length; i++) { %>
+    <% if (allAnswers[i].value === undefined) { %>
+    <div id="termsLeft">
+        <%= allAnswers[i].term %>
+    </div>
+    <br>
+    <% }else { %>
+    <div id="termsRight">
+        <%= allAnswers[i].term %>
+    </div>
+    <br>
+    <% } %>
+    <% } %>
+</div>
 </body>
 </html>
