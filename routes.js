@@ -10,6 +10,7 @@ app.use(express.static(__dirname + '/shared'));
 
 app.get('/', index.show);
 app.get('/jedi', jedi.show);
+app.post('/jedi', jedi.input);
 app.get('/padawan', padawan.show);
 
 module.exports = http;
