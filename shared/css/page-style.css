@@ -1,20 +1,19 @@
 a {
     color: dimgray;
     text-decoration: none;
-    border-bottom-color: white;
 }
 
 p, .newTerms {
     font: 500% "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 100;
-    border-bottom-color: white;
-    -webkit-transition: color 1s, border-color 3s;
-    -moz-transition: color 1s, border-color 3s;
-    -o-transition: color 1s, border-color 3s;
-    transition: color 1s, border-color 3s;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: color 1s, border 0.5s ease-in;
+    -moz-transition: color 1s, border 0.5s ease-in;
+    -o-transition: color 1s, border 0.5s ease-in;
+    transition: color 1s, border 0.5s ease-in;
 }
 
-.newTerms {
+.allTerms {
     font: 100% "Open Sans", sans-serif;
 }
 
