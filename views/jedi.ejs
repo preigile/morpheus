@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/page-style.css" type="text/css">
-    <script type="text/javascript" src="/js/page-interactive.js"></script>
 </head>
 <body>
 <div class="addTerm">
-    <form action="/jedi.js" method="POST" id="addBlockForm">
-        <div class="formItem">
-            <input class="termInput" type="text" name="newTerm" value="" placeholder="">
-        </div>
-        <div class="formActions">
+    <form action="/jedi" method="POST" id="addBlockForm">
+        <!--<div class="formItem">-->
+            <input class="termInput" type="text" name=description value="" placeholder="">
+        <!--</div>-->
+        <!--<div class="formActions">-->
             <input class="submitTermAction" type="submit" name="" value="Добавить">
-        </div>
+        <!--</div>-->
     </form>
 </div>
 <div class="allTerms">
@@ -25,7 +24,7 @@
         <%= allAnswers[i].term %>
     </div>
     <br>
-    <% }else { %>
+    <% } else { %>
     <div id="termsRight">
         <%= allAnswers[i].term %>
     </div>
@@ -33,5 +32,7 @@
     <% } %>
     <% } %>
 </div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="/js/page-interactive.js"></script>
 </body>
 </html>

@@ -7,6 +7,16 @@ var allAnswers = {
 
     getAllAnswers: function () {
         return this.answers;
+    },
+
+    addAnswer: function (answer) {
+        console.log(answer);
+        if ((answer.term !== undefined) && ('term' in answer)) {
+            this.answers.push(answer);
+            console.log(answer.term + ' was added');
+        } else {
+            console.log('Get wrong format')
+        }
     }
 };
 
