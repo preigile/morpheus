@@ -6,27 +6,31 @@
     <link rel="stylesheet" href="/css/page-style.css" type="text/css">
 </head>
 <body>
-<div class="addTerm">
-    <form action="/jedi" method="POST" id="addBlockForm">
-        <input class="termInput" type="text" name=description value="" placeholder="">
-        <input class="submitTermAction" type="submit" name="" value="Добавить">
-    </form>
-</div>
+<form action="/jedi" method="POST" id="addBlockForm">
+        <input class="termInput" type="text" name=description value="" placeholder="Add term">
+        <input class="submitTermAction" type="submit" name="" value="+"><br style="clear: both;">
+</form>
 <div class="allTerms">
     <% var allAnswers = terms.getAllAnswers(); %>
-    <% for(var i = 0; i < allAnswers.length; i++) { %>
-    <% if (allAnswers[i].value === undefined) { %>
-    <div id="termsLeft">
-        <%= allAnswers[i].term %>
+
+    <div id="leftTermsColumn">
+        <% for(var i = 0; i < allAnswers.length; i++) { %>
+        <% if (allAnswers[i].value === undefined) { %>
+        <div class="termsLeft">
+            <%= allAnswers[i].term %>
+        </div>
+        <% }} %>
     </div>
-    <br>
-    <% } else { %>
-    <div id="termsRight">
-        <%= allAnswers[i].term %>
+
+    <div id="rightTermsColumn">
+        <% for(i = 0; i < allAnswers.length; i++) { %>
+        <% if (allAnswers[i].value !== undefined) { %>
+        <div class="termsRight">
+            <%= allAnswers[i].term %>
+        </div>
+        <% }} %>
     </div>
-    <br>
-    <% } %>
-    <% } %>
+    
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="/js/page-interactive.js"></script>
