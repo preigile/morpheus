@@ -3,7 +3,7 @@ a {
     text-decoration: none;
 }
 
-p, .newTerms {
+p {
     font: 500% "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 100;
     border-bottom: 2px solid transparent;
@@ -13,11 +13,7 @@ p, .newTerms {
     transition: color 1s, border 0.5s ease-in;
 }
 
-.allTerms {
-    font: 100% "Open Sans", sans-serif;
-}
-
-#jedi, #padawan, .newTerms {
+#jedi, #padawan {
     display: block;
     position: relative;
     text-align: center;
@@ -33,9 +29,7 @@ p, .newTerms {
     border-bottom: 2px solid blue;
 }
 
-
-
-#jedi, #termsLeft {
+#jedi {
     margin-top: 10%;
     margin-left: 30%;
     float: left;
@@ -47,14 +41,121 @@ p, .newTerms {
     float: right;
 }
 
-#termsLeft {
-    float: right;
-    margin-right: 60%;
-    color: #87CEEB;
+#addBlockForm {
+    margin: 5% auto;
+    padding: 0;
+    border: 1px solid #EEE;
+    width: 50%;
+    height: auto;
 }
 
-#termsRight {
+.termInput {
+    font-size: 130%;
+    color: #8D8D8D;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #FFF;
+    display: block;
+    width: 80%;
+    height: 20px;
+    padding: 20px 0 20px 5%;
+    border: none;
     float: left;
-    margin-left: 60%;
+    outline: none;
+}
+
+.submitTermAction {
+    display: block;
+    height: 60px;
+    width: 15%;
+    border: none;
+    background-color: #FFF;
+    float: right;
+    cursor: pointer;
+    font: 200% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #CCCCCC;
+    -webkit-transition: color 0.25s ease-in;
+    -moz-transition: color 0.25s ease-in;
+    -o-transition: color 0.25s ease-in;
+    /*transition: all 0.25s ease;*/
+}
+
+.submitTermAction:hover {
+    color: #8D8D8D;
+}
+
+#addBlockForm input.termInput::-webkit-input-placeholder {
+    color: #CCCCCC;
+    -webkit-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+#addBlockForm input.termInput::-moz-placeholder {
+    color: #CCCCCC;
+    -webkit-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+#addBlockForm input.termInput::-ms-input-placeholder {
+    color: #CCCCCC;
+    -webkit-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+#addBlockForm input.termInput:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+#addBlockForm input.termInput:focus::-moz-placeholder {
+    color: transparent;
+}
+
+#addBlockForm input.termInput:focus:-moz-placeholder {
+    color: transparent;
+}
+
+#addBlockForm input.termInput:focus::-ms-input-placeholder {
+    color: transparent;
+}
+
+#leftTermsColumn, #rightTermsColumn, .termsLeft, .termsRight {
+    padding: 0;
+    display: block;
+    position: relative;
+    font: 110% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+}
+
+#rightTermsColumn, .termsLeft {
+    float: right;
+    width: 49%;
+    /*margin-top: 5%;*/
+}
+
+#leftTermsColumn, .termsRight {
+    float: left;
+    width: 49%;
+    /*margin-top: 5%;*/
+}
+
+.termsLeft {
+    margin-right: 10%;
+    margin-top: 2.5%;
+    color: #87CEEB;
+    text-align: right;
+}
+
+.termsRight {
+    margin-left: 10%;
+    margin-top: 2.5%;
     color: #F08080;
 }
