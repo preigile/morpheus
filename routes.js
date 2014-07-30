@@ -7,13 +7,19 @@ var index = require('./controllers/index');
 var jedi = require('./controllers/jedi');
 var padawan = require('./controllers/padawan');
 
-app.use(bodyParser.json());
-app.use(express.static(__dirname + '/shared'));
+function initServer() {
+    app.use(bodyParser.json());
+    app.use(express.static(__dirname + '/shared'));
+}
 
-app.get('/', index.show);
-app.get('/jedi', jedi.show);
-app.post('/jedi', jedi.input);
+function declareRoutes() {
+    app.get('/', index.show);
+    app.get('/jedi', jedi.show);
+    app.post('/jedi', jedi.input);
+    app.get('/padawan', padawan.show);
+}
 
-app.get('/padawan', padawan.show);
+initServer();
+declareRoutes();
 
 module.exports = http;
