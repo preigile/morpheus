@@ -5,7 +5,7 @@
     "dependencies": {
         "express": "~4.4.1",
         "ejs": "~1.0.0",
-        "body-parer": "~1.4.3"
+        "body-parser": "~1.4.3"
     },
 
     "devDependencies": {
