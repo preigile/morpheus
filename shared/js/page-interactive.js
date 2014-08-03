@@ -1,7 +1,11 @@
 $(document).ready(function () {
     $('.submitTermAction').click(function (event) {
         event.preventDefault();
-        var answer = {term: $('.termInput').val()};
+        var answer = {
+            term: $('.termInput').val(),
+            value: "",
+            hasValue: false
+        };
         $.ajax('/jedi', {
             type: 'POST',
             data: JSON.stringify(answer),

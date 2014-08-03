@@ -1,15 +1,17 @@
-var allAnswers = require('../models/all-answers');
+var mongo = require('../models/mongo');
 
 var jedi = {
     show: function (req, res) {
-        res.render('jedi.ejs', {
-            title: 'Jedi',
-            terms: allAnswers
-        })
+        mongo.getAllAnswers(function (docs) {
+            res.render('jedi.ejs', {
+                title: 'Jedi',
+                terms: docs
+            })
+        });
     },
     input: function (req, res) {
         var answer = req.body;
-        allAnswers.addAnswer(answer);
+        mongo.addAnswer(answer);
         res.end('Answer ' + answer.term + ' successfully added!');
     }
 };

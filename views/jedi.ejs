@@ -7,30 +7,35 @@
 </head>
 <body>
 <form action="/jedi" method="POST" id="addBlockForm">
-        <input class="termInput" type="text" name=description value="" placeholder="Add term">
-        <input class="submitTermAction" type="submit" name="" value="+"><br style="clear: both;">
+    <input class="termInput" type="text" name=description value="" placeholder="Add term">
+    <input class="submitTermAction" type="submit" name="" value="+"><br style="clear: both;">
 </form>
 <div class="allTerms">
-    <% var allAnswers = terms.getAllAnswers(); %>
 
     <div id="leftTermsColumn">
-        <% for(var i = 0; i < allAnswers.length; i++) { %>
-        <% if (allAnswers[i].value === undefined) { %>
-        <div class="termsLeft">
-            <%= allAnswers[i].term %>
+        <% for(var i = 0; i < terms.length; i++) { %>
+        <% if (!terms[i].hasValue) { %>
+        <div class="term left termsLeft">
+            <%= terms[i].term %>
+        </div>
+        <div class="value left">
+            <%= terms[i].value %>
         </div>
         <% }} %>
     </div>
 
     <div id="rightTermsColumn">
-        <% for(i = 0; i < allAnswers.length; i++) { %>
-        <% if (allAnswers[i].value !== undefined) { %>
-        <div class="termsRight">
-            <%= allAnswers[i].term %>
+        <% for(i = 0; i < terms.length; i++) { %>
+        <% if (terms[i].hasValue) { %>
+        <div class="term right termsRight">
+            <%= terms[i].term %>
+        </div>
+        <div class="value right">
+            <%= terms[i].value %>
         </div>
         <% }} %>
     </div>
-    
+
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="/js/page-interactive.js"></script>
