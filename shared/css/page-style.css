@@ -1,11 +1,36 @@
-a {
-    color: dimgray;
-    text-decoration: none;
+body,
+input {
+    display: block;
+    position: relative;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-p {
-    font: 500% "Helvetica Neue", Helvetica, Arial, sans-serif;
+a {
+    text-decoration: none;
+    color: dimgray;
+}
+
+#jedi,
+#padawan,
+h1 {
+    margin-top: 10%;
+    text-align: center;
+    font-size: 500%;
     font-weight: 100;
+}
+
+#jedi {
+    float: left;
+    margin-left: 30%;
+}
+
+#padawan {
+    float: right;
+    margin-right: 25%;
+}
+
+#jedi p,
+#padawan p {
     border-bottom: 2px solid transparent;
     -webkit-transition: color 1s, border 0.5s ease-in;
     -moz-transition: color 1s, border 0.5s ease-in;
@@ -13,66 +38,85 @@ p {
     transition: color 1s, border 0.5s ease-in;
 }
 
-#jedi, #padawan {
-    display: block;
-    position: relative;
-    text-align: center;
-}
-
 #jedi p:hover {
-    color: red;
     border-bottom: 2px solid red;
+    color: red;
 }
 
 #padawan p:hover {
-    color: blue;
     border-bottom: 2px solid blue;
+    color: blue;
 }
 
-#jedi {
-    margin-top: 10%;
-    margin-left: 30%;
-    float: left;
+#leftTermsColumn,
+#rightTermsColumn,
+.left,
+.right {
+    margin-top: 2.5%;
+    padding: 0;
+    font-size: 110%;
+    font-weight: 200;
+    letter-spacing: 1px;
 }
 
-#padawan {
-    margin-top: 10%;
-    margin-right: 25%;
+#rightTermsColumn,
+.left {
     float: right;
+    width: 49%;
+}
+
+#leftTermsColumn,
+.right {
+    float: left;
+    width: 49%;
+}
+
+.termsLeft,
+.left {
+    margin-right: 10%;
+    text-align: right;
+}
+
+.termsRight,
+.right {
+    margin-left: 10%;
+}
+
+.value {
+    color: #CCCCCC;
+    font-size: 80%;
+    margin-top: 0;
 }
 
 #addBlockForm {
+    width: 50%;
+    height: auto;
     margin: 5% auto;
     padding: 0;
     border: 1px solid #EEE;
-    width: 50%;
-    height: auto;
 }
 
 .termInput {
-    font-size: 130%;
-    color: #8D8D8D;
-    -webkit-font-smoothing: antialiased;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: #FFF;
-    display: block;
+    float: left;
     width: 80%;
     height: 20px;
     padding: 20px 0 20px 5%;
+    font-size: 130%;
+    -webkit-font-smoothing: antialiased;
     border: none;
-    float: left;
     outline: none;
+    background-color: #FFF;
+    color: #8D8D8D;
 }
 
 .submitTermAction {
-    display: block;
-    height: 60px;
-    width: 15%;
-    border: none;
-    background-color: #FFF;
     float: right;
+    width: 15%;
+    height: 60px;
+    font-size: 200%;
+    border: none;
     cursor: pointer;
-    font: 200% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #FFF;
     color: #CCCCCC;
     -webkit-transition: color 0.25s ease-in;
     -moz-transition: color 0.25s ease-in;
@@ -125,42 +169,4 @@ p {
 
 #addBlockForm input.termInput:focus::-ms-input-placeholder {
     color: transparent;
-}
-
-#leftTermsColumn, #rightTermsColumn, .left, .right {
-    padding: 0;
-    display: block;
-    position: relative;
-    font: 110% "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 200;
-    letter-spacing: 1px;
-}
-
-#rightTermsColumn, .left {
-    float: right;
-    width: 49%;
-}
-
-#leftTermsColumn, .right {
-    float: left;
-    width: 49%;
-}
-
-.termsLeft, .left {
-    margin-right: 10%;
-    margin-top: 2.5%;
-    color: red;
-    text-align: right;
-}
-
-.termsRight, .right {
-    margin-left: 10%;
-    margin-top: 2.5%;
-    color: blue;
-}
-
-.value {
-    color: dimgray;
-    font-size: 80%;
-    margin-top: 0;
 }

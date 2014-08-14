@@ -15,8 +15,8 @@
     <div id="leftTermsColumn">
         <% for(var i = 0; i < terms.length; i++) { %>
         <% if (!terms[i].hasValue) { %>
-        <div class="term left termsLeft">
-            <%= terms[i].term %>
+        <div class="left termsLeft">
+            <a href="#"><%= terms[i].term %></a>
         </div>
         <div class="value left">
             <%= terms[i].value %>
@@ -27,8 +27,8 @@
     <div id="rightTermsColumn">
         <% for(i = 0; i < terms.length; i++) { %>
         <% if (terms[i].hasValue) { %>
-        <div class="term right termsRight">
-            <%= terms[i].term %>
+        <div class="right termsRight">
+            <a href="#"><%= terms[i].term %></a>
         </div>
         <div class="value right">
             <%= terms[i].value %>
