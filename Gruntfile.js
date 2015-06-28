@@ -1,30 +1,106 @@
 module.exports = function (grunt) {
+    require('load-grunt-tasks')(grunt);
+
     grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+
         coffee: {
-            options: {
-                bare: true
-            },
-            compile: {
+            dev: {
+                options: {
+                    bare: true
+                },
                 files: {
-                    'shared/js/app.js': ['client/coffee/*.coffee']
+                    'build/.tmp/js/page-interactive.js': 'client/coffee/*.coffee'
                 }
             }
         },
-        watch: {
+
+        uglify: {
             options: {
-                livereload: true
+                mangle: false
             },
             scripts: {
-                files: ['client/coffee/*.coffee'],
-                tasks: ['process']
+                files: {
+                    'build/public/js/page-interactive.min.js': ['build/.tmp/js/page-interactive.js']
+                }
+            }
+        },
+
+        less: {
+            dev: {
+                options: {
+                    sourceMap: true
+                },
+                files: {
+                    'build/.tmp/css/styles.css': 'client/less/*.less'
+                }
+            },
+            dist: {
+                options: {
+                    compress: true,
+                    report: true
+                },
+                files: {
+                    'build/public/css/styles.min.css': 'build/.tmp/css/*.css'
+                }
+            }
+        },
+
+        copy: {
+            assets: {
+                expand: true,
+                src: ['static/*', 'views/*', 'models/*', 'controllers/*', 'app.js', 'routes.js'],
+                dest: 'build/'
+            },
+            vendor: {
+                expand: true,
+                cwd: 'node_modules/',
+                src: '**',
+                dest: 'build/vendor/'
+            }
+        },
+
+        compress: {
+            main: {
+                options: {
+                    archive: 'build/distribution/morpheus/morpheus.tar'
+                },
+                expand: true,
+                cwd: 'build/',
+                src: ['**/*'],
+            }
+        },
+
+        clean: {
+            build: ['build'],
+            release: ['build/.tmp']
+        },
+
+        watch: {
+            scripts: {
+                files: ['client/coffee/*.coffee', 'build/.tmp/js/app.js'],
+                tasks: ['coffee', 'uglify'],
+                options: {
+                    spawn: false,
+                    livereload: true
+                }
+            },
+            css: {
+                files: ['client/less/*.less', 'build/.tmp/css/*.css'],
+                tasks: ['less'],
+                options: {
+                    spawn: false
+                }
+            },
+            html: {
+                files: ['views/*.ejs'],
+                tasks: ['copy'],
+                options: {
+                    spawn: false
+                }
             }
         }
     });
 
-    grunt.loadNpmTasks('grunt-contrib-coffee');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-newer');
-
-    grunt.registerTask('process', ['newer:coffee']);
-    grunt.registerTask('default', ['coffee', 'watch']);
+    grunt.registerTask('default', ['clean:build', 'less', 'coffee', 'uglify', 'copy', 'clean:release', 'compress']);
 };
