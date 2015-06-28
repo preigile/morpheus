@@ -9,7 +9,8 @@ var padawan = require('./controllers/padawan');
 
 function initServer() {
     app.use(bodyParser.json());
-    app.use(express.static(__dirname + '/shared'));
+    app.use(express.static(__dirname + '/public'));
+    console.log(__dirname + '/public');
 }
 
 function declareRoutes() {
