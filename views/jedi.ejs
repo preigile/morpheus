@@ -6,31 +6,31 @@
     <link rel="stylesheet" href="css/styles.min.css" type="text/css">
 </head>
 <body>
-<form action="/jedi" method="POST" id="addBlockForm">
-    <input class="termInput" type="text" name=description value="" placeholder="Add term">
-    <input class="submitTermAction" type="submit" name="" value="+"><br style="clear: both;">
+<form action="/jedi" method="POST" class="new-term">
+    <input class="new-term-input" type="text" name=description value="" placeholder="Add term">
+    <input class="new-term-submit" type="submit" name="" value="+"><br style="clear: both;">
 </form>
-<div class="allTerms">
 
-    <div id="leftTermsColumn">
+<div class="terms">
+    <div class="terms-left">
         <% for(var i = 0; i < terms.length; i++) { %>
         <% if (!terms[i].hasValue) { %>
-        <div class="left termsLeft">
+        <div class="terms-left-term left">
             <a href="#"><%= terms[i].term %></a>
         </div>
-        <div class="value left">
+        <div class="terms-value left">
             <%= terms[i].value %>
         </div>
         <% }} %>
     </div>
 
-    <div id="rightTermsColumn">
+    <div class="terms-right">
         <% for(i = 0; i < terms.length; i++) { %>
         <% if (terms[i].hasValue) { %>
-        <div class="right termsRight">
+        <div class="terms-right-term right">
             <a href="#"><%= terms[i].term %></a>
         </div>
-        <div class="value right">
+        <div class="terms-value right">
             <%= terms[i].value %>
         </div>
         <% }} %>

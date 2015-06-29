@@ -1,13 +1,18 @@
+@base-color: #8D8D8D;
+@light-color: lighten(@base-color, 20%);
+@form-background: #FFF;
+
 body,
 input {
     display: block;
     position: relative;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: @base-color;
 }
 
 a {
     text-decoration: none;
-    color: dimgray;
+    color: @base-color;
 }
 
 #jedi,
@@ -19,13 +24,21 @@ h1 {
     font-weight: 100;
 }
 
+.links-position(@float, @color) {
+    float: @float;
+    p:hover {
+        border-bottom: 2px solid @color;
+        color: @color;
+    }
+}
+
 #jedi {
-    float: left;
+    .links-position(left, red);
     margin-left: 30%;
 }
 
 #padawan {
-    float: right;
+    .links-position(right, blue);
     margin-right: 25%;
 }
 
@@ -38,57 +51,50 @@ h1 {
     transition: color 1s, border 0.5s ease-in;
 }
 
-#jedi p:hover {
-    border-bottom: 2px solid red;
-    color: red;
-}
-
-#padawan p:hover {
-    border-bottom: 2px solid blue;
-    color: blue;
-}
-
-#leftTermsColumn,
-#rightTermsColumn,
+.terms-left,
+.terms-right,
 .left,
 .right {
-    margin-top: 2.5%;
     padding: 0;
+    margin-top: 2.5%;
     font-size: 110%;
     font-weight: 200;
     letter-spacing: 1px;
 }
 
-#rightTermsColumn,
+.terms-position(@float) {
+    float: @float;
+    width: 49%;
+}
+
+.terms-right,
 .left {
-    float: right;
-    width: 49%;
+    .terms-position(right);
 }
 
-#leftTermsColumn,
+.terms-left,
 .right {
-    float: left;
-    width: 49%;
+    .terms-position(left);
 }
 
-.termsLeft,
+.terms-left-term,
 .left {
     margin-right: 10%;
     text-align: right;
 }
 
-.termsRight,
+.terms-right-term,
 .right {
     margin-left: 10%;
 }
 
-.value {
-    color: #CCCCCC;
+.terms-value {
+    color: @light-color;
     font-size: 80%;
     margin-top: 0;
 }
 
-#addBlockForm {
+.new-term {
     width: 50%;
     height: auto;
     margin: 5% auto;
@@ -96,77 +102,69 @@ h1 {
     border: 1px solid #EEE;
 }
 
-.termInput {
-    float: left;
-    width: 80%;
-    height: 20px;
+.form-elements(@float, @width, @height, @font-size, @color) {
+    float: @float;
+    width: @width;
+    height: @height;
+    font-size: @font-size;
+    border: none;
+    background-color: @form-background;
+    color: @color;
+}
+
+.new-term-input {
+    .form-elements(left, 80%, 20px, 130%, @base-color);
     padding: 20px 0 20px 5%;
-    font-size: 130%;
     -webkit-font-smoothing: antialiased;
-    border: none;
     outline: none;
-    background-color: #FFF;
-    color: #8D8D8D;
 }
 
-.submitTermAction {
-    float: right;
-    width: 15%;
-    height: 60px;
-    font-size: 200%;
-    border: none;
+.transition(@property, @duration, @timing-function) {
+    -webkit-transition: @property @duration @timing-function;
+    -moz-transition: @property @duration @timing-function;
+    -ms-transition: @property @duration @timing-function;
+    -o-transition: @property @duration @timing-function;
+    transition: @property @duration @timing-function;
+}
+
+.new-term-submit {
+    .form-elements(right, 15%, 60px, 200%, @light-color);
+    .transition(color, 0.3s, ease-in);
     cursor: pointer;
-    background-color: #FFF;
-    color: #CCCCCC;
-    -webkit-transition: color 0.25s ease-in;
-    -moz-transition: color 0.25s ease-in;
-    -o-transition: color 0.25s ease-in;
-    transition: color 0.25s ease;
+    &:hover {
+       color: @base-color; 
+    }
 }
 
-.submitTermAction:hover {
-    color: #8D8D8D;
+.input-placeholder {
+    .transition(all, 0.3s, ease);
+    color: @light-color;
 }
 
-#addBlockForm input.termInput::-webkit-input-placeholder {
-    color: #CCCCCC;
-    -webkit-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+.new-term-input::-webkit-input-placeholder {
+    .input-placeholder
 }
 
-#addBlockForm input.termInput::-moz-placeholder {
-    color: #CCCCCC;
-    -webkit-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+.new-term-input::-moz-placeholder {
+    .input-placeholder
 }
 
-#addBlockForm input.termInput::-ms-input-placeholder {
-    color: #CCCCCC;
-    -webkit-transition: all 0.2s ease;
-    -ms-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
+.new-term-input::-ms-input-placeholder {
+    .input-placeholder
 }
 
-#addBlockForm input.termInput:focus::-webkit-input-placeholder {
+.input-focus {
     color: transparent;
 }
 
-#addBlockForm input.termInput:focus::-moz-placeholder {
-    color: transparent;
+.new-term-input:focus::-webkit-input-placeholder {
+    .input-focus
 }
 
-#addBlockForm input.termInput:focus:-moz-placeholder {
-    color: transparent;
+.new-term-input:focus::-moz-placeholder {
+    .input-focus
 }
 
-#addBlockForm input.termInput:focus::-ms-input-placeholder {
-    color: transparent;
+.new-term-input:focus::-ms-input-placeholder {
+    .input-focus
 }
