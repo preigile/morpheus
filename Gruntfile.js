@@ -4,24 +4,13 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        coffee: {
-            dev: {
-                options: {
-                    bare: true
-                },
-                files: {
-                    'build/.tmp/js/page-interactive.js': 'client/coffee/*.coffee'
-                }
-            }
-        },
-
         uglify: {
             options: {
                 mangle: false
             },
             scripts: {
                 files: {
-                    'build/public/js/page-interactive.min.js': ['build/.tmp/js/page-interactive.js']
+                    'build/public/js/page-interactive.min.js': ['client/scripts/*.js']
                 }
             }
         },
@@ -78,8 +67,8 @@ module.exports = function (grunt) {
 
         watch: {
             scripts: {
-                files: ['client/coffee/*.coffee', 'build/.tmp/js/app.js'],
-                tasks: ['coffee', 'uglify'],
+                files: ['client/scripts/*.js', 'build/.tmp/js/app.js'],
+                tasks: ['uglify'],
                 options: {
                     spawn: false,
                     livereload: true
@@ -102,5 +91,5 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['clean:build', 'less', 'coffee', 'uglify', 'copy', 'clean:release', 'compress']);
+    grunt.registerTask('default', ['clean:build', 'less', 'uglify', 'copy', 'clean:release', 'compress']);
 };
