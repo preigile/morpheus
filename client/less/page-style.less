@@ -47,6 +47,7 @@ h1 {
     border-bottom: 2px solid transparent;
     -webkit-transition: color 1s, border 0.5s ease-in;
     -moz-transition: color 1s, border 0.5s ease-in;
+    -ms-transition: color 1s, border 0.5s ease-in;
     -o-transition: color 1s, border 0.5s ease-in;
     transition: color 1s, border 0.5s ease-in;
 }
@@ -89,16 +90,16 @@ h1 {
 }
 
 .terms-value {
-    color: @light-color;
+    margin-top: 0;  
     font-size: 80%;
-    margin-top: 0;
+    color: @light-color;
 }
 
 .new-term {
     width: 50%;
     height: auto;
-    margin: 5% auto;
     padding: 0;
+    margin: 5% auto;  
     border: 1px solid #EEE;
 }
 

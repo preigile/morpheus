@@ -20,11 +20,11 @@ var mongo = {
     addAnswer: function (answer) {
         if ((answer.term !== undefined) && ('term' in answer)) {
             new Neuro(answer).save(function (err) {
-                console.log(err)
+                console.log(err);
             });
             console.log(answer.term + ' was added');
         } else {
-            console.log('Wrong term format')
+            console.log('Wrong term format');
         }
     }
 };

@@ -6,7 +6,7 @@ var jedi = {
             res.render('jedi.ejs', {
                 title: 'Jedi',
                 terms: docs
-            })
+            });
         });
     },
     input: function (req, res) {
