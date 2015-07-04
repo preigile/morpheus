@@ -17,6 +17,7 @@
         <% if (!terms[i].hasValue) { %>
         <div class="terms-left-term left">
             <a href="#"><%= terms[i].term %></a>
+            <a href="#" class="terms-delete" id="<%= terms[i].id %>">X</a>
         </div>
         <div class="terms-value left">
             <%= terms[i].value %>
@@ -29,6 +30,7 @@
         <% if (terms[i].hasValue) { %>
         <div class="terms-right-term right">
             <a href="#"><%= terms[i].term %></a>
+            <input class="terms-delete" type="submit" name="" value="X">
         </div>
         <div class="terms-value right">
             <%= terms[i].value %>

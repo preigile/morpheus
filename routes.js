@@ -17,6 +17,7 @@ function declareRoutes() {
     app.get('/', index.show);
     app.get('/jedi', jedi.show);
     app.post('/jedi', jedi.input);
+    app.delete('/jedi', jedi.delete);
     app.get('/padawan', padawan.show);
 }
 

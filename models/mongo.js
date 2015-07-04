@@ -26,6 +26,13 @@ var mongo = {
         } else {
             console.log('Wrong term format');
         }
+    },
+
+    deleteAnswer: function (answer) {
+        Neuro.remove(answer, function(err) {
+            if (err) return handleError(err);
+        });
+        console.log(answer, ' was deleted');
     }
 };
 

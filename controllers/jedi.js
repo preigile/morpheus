@@ -9,10 +9,17 @@ var jedi = {
             });
         });
     },
+
     input: function (req, res) {
         var answer = req.body;
         mongo.addAnswer(answer);
         res.end('Answer ' + answer.term + ' successfully added!');
+    },
+
+    delete: function (req, res) {
+        var answer = req.body;
+        mongo.deleteAnswer(answer);
+        res.end('Answer ' + answer + ' successfully deleted!');
     }
 };
 
