@@ -4,13 +4,23 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        concat: {
+            options: {
+                separator: ';',
+            },
+            dist: {
+                src: ['client/scripts/*.js'],
+                dest: 'build/.tmp/scripts/page-interactive.js',
+            },
+        },
+
         uglify: {
             options: {
                 mangle: false
             },
             scripts: {
                 files: {
-                    'build/public/js/page-interactive.min.js': ['client/scripts/*.js']
+                    'build/public/js/page-interactive.min.js': ['build/.tmp/scripts/page-interactive.js']
                 }
             }
         },
@@ -38,8 +48,13 @@ module.exports = function (grunt) {
         copy: {
             assets: {
                 expand: true,
-                src: ['static/*', 'views/*', 'models/*', 'controllers/*', 'app.js', 'routes.js'],
+                src: ['views/*', 'models/*', 'controllers/*', 'app.js', 'routes.js'],
                 dest: 'build/'
+            },
+            static: {
+                expand: true,
+                src: ['static/*'],
+                dest: 'build/public/'
             },
             vendor: {
                 expand: true,
@@ -91,5 +106,5 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('default', ['clean:build', 'less', 'uglify', 'copy', 'clean:release', 'compress']);
+    grunt.registerTask('default', ['clean:build', 'less', 'concat', 'uglify', 'copy', 'clean:release', 'compress']);
 };
