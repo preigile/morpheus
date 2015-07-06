@@ -4,6 +4,7 @@ var http = require('http').Server(app);
 var bodyParser = require('body-parser');
 
 var index = require('./controllers/index');
+var login = require('./controllers/login');
 var jedi = require('./controllers/jedi');
 var padawan = require('./controllers/padawan');
 
@@ -15,6 +16,7 @@ function initServer() {
 
 function declareRoutes() {
     app.get('/', index.show);
+    app.get('/login', login.show);
     app.get('/jedi', jedi.show);
     app.post('/jedi', jedi.input);
     app.delete('/jedi', jedi.delete);

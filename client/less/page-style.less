@@ -1,11 +1,68 @@
+@main-color: #598;
+@main-color-2: #566787;
 @base-color: #8D8D8D;
+@darken-color: darken(@base-color, 20%);
 @light-color: lighten(@base-color, 20%);
-@form-background: #FFF;
+@form-backround: #CB9D79;
+@input-background: #FFF;
+@text-shadow: 1px 1px 0 rgba(203,157,121,.4);
+@link-transition: color 1s, border .5s ease-in;
+@background-size: cover;
 
-body,
-input {
+.links-position(@float, @color) {
+    float: @float;
+    p:hover {
+        border-bottom: 2px solid @color;
+        color: @color;
+    }
+}
+
+.transparent(@size) {
+    border-bottom: @size solid transparent;
+    -webkit-transition: @link-transition;
+    -moz-transition: @link-transition;
+    -ms-transition: @link-transition;
+    -o-transition: @link-transition;
+    transition: @link-transition;
+}
+
+.terms-position(@float) {
+    float: @float;
+    width: 49%;
+}
+
+.form-elements(@float, @width, @height, @font-size, @color) {
+    float: @float;
+    width: @width;
+    height: @height;
+    font-size: @font-size;
+    border: none;
+    background-color: @input-background;
+    color: @color;
+}
+
+.transition(@property, @duration, @timing-function) {
+    @transition: @property @duration @timing-function;
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -ms-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+.input-placeholder {
+    .transition(all, .3s, ease);
+    color: @light-color;
+}
+
+.input-focus {
+    color: transparent;
+}
+
+body {
     display: block;
     position: relative;
+    margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: @base-color;
 }
@@ -15,21 +72,105 @@ a {
     color: @base-color;
 }
 
+.description {
+    color: @main-color;
+    -webkit-text-shadow: @text-shadow;
+    -moz-text-shadow: @text-shadow;
+    -ms-text-shadow: @text-shadow;
+    -o-text-shadow: @text-shadow;
+    text-shadow: @text-shadow;
+}
+
+.login {
+    width: 48%;
+    padding: 1%;
+    margin-bottom: 6.5%; 
+    margin-left: 25%;
+    text-align: center;
+    color: @darken-color;
+    background-color: fade(@form-backround, 70%);
+    input {
+        font-size: 14px;
+        background-color: fade(@input-background, 80%);
+        border: 1px solid fade(@form-backround, 20%);
+        &:focus {
+            outline: 0;
+            border: 1px solid @main-color;
+        }
+    }
+    .input {
+        padding: 5px 0 5px 5%;
+    }
+    .login-input {
+        display: inline-block;
+        width: 70%;
+        height: 24px;
+        margin: 0 auto;
+        color: @darken-color;
+    }
+    .login-input-rememberme {
+        position: relative;
+        top: -2px;
+    }
+    .login-submit {
+        width: 75%;
+        height: 34px;
+        color: @darken-color;
+        background-color: fade(@form-backround, 70%);
+        .transition(background-color, .5s, ease);
+        &:hover {
+            background-color: @main-color;
+        }
+    }
+    a {
+        color: @main-color;
+        .transparent(1px);
+        &:hover {
+            border-bottom: 1px solid @main-color;
+        }
+    }
+    .login-item {
+        margin: 14px auto;
+    }
+    .login-or {
+        margin: 0 auto 10px;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        border-radius: 50%;
+        background-color: fade(@form-backround, 80%);
+        p {
+            vertical-align: middle;
+        }
+    }
+    .login-input-name, .login-input-password2 {
+        visibility: hidden;
+    }
+}
+
+.background {
+    min-height: 100%;
+    min-width: 1024px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: url(../static/background-1.jpg) no-repeat center center fixed;
+    -webkit-background-size: @background-size;
+    -moz-background-size: @background-size;
+    -ms-background-size: @background-size;
+    -o-background-size: @background-size;
+    background-size: @background-size;
+}
+
 #jedi,
 #padawan,
 h1 {
-    margin-top: 10%;
+    margin: 3% auto;
     text-align: center;
     font-size: 500%;
     font-weight: 100;
-}
-
-.links-position(@float, @color) {
-    float: @float;
-    p:hover {
-        border-bottom: 2px solid @color;
-        color: @color;
-    }
 }
 
 #jedi {
@@ -44,12 +185,7 @@ h1 {
 
 #jedi p,
 #padawan p {
-    border-bottom: 2px solid transparent;
-    -webkit-transition: color 1s, border 0.5s ease-in;
-    -moz-transition: color 1s, border 0.5s ease-in;
-    -ms-transition: color 1s, border 0.5s ease-in;
-    -o-transition: color 1s, border 0.5s ease-in;
-    transition: color 1s, border 0.5s ease-in;
+    .transparent(2px);
 }
 
 .terms-left,
@@ -61,11 +197,6 @@ h1 {
     font-size: 110%;
     font-weight: 200;
     letter-spacing: 1px;
-}
-
-.terms-position(@float) {
-    float: @float;
-    width: 49%;
 }
 
 .terms-right,
@@ -103,16 +234,6 @@ h1 {
     border: 1px solid #EEE;
 }
 
-.form-elements(@float, @width, @height, @font-size, @color) {
-    float: @float;
-    width: @width;
-    height: @height;
-    font-size: @font-size;
-    border: none;
-    background-color: @form-background;
-    color: @color;
-}
-
 .new-term-input {
     .form-elements(left, 80%, 20px, 130%, @base-color);
     padding: 20px 0 20px 5%;
@@ -120,52 +241,49 @@ h1 {
     outline: none;
 }
 
-.transition(@property, @duration, @timing-function) {
-    -webkit-transition: @property @duration @timing-function;
-    -moz-transition: @property @duration @timing-function;
-    -ms-transition: @property @duration @timing-function;
-    -o-transition: @property @duration @timing-function;
-    transition: @property @duration @timing-function;
-}
-
 .new-term-submit {
     .form-elements(right, 15%, 60px, 200%, @light-color);
-    .transition(color, 0.3s, ease-in);
+    .transition(color, .3s, ease-in);
     cursor: pointer;
     &:hover {
        color: @base-color; 
     }
 }
 
-.input-placeholder {
-    .transition(all, 0.3s, ease);
-    color: @light-color;
-}
-
-.new-term-input::-webkit-input-placeholder {
+.input::-webkit-input-placeholder {
     .input-placeholder
 }
 
-.new-term-input::-moz-placeholder {
+.input::-moz-placeholder {
     .input-placeholder
 }
 
-.new-term-input::-ms-input-placeholder {
+.input::-ms-input-placeholder {
     .input-placeholder
 }
 
-.input-focus {
-    color: transparent;
-}
-
-.new-term-input:focus::-webkit-input-placeholder {
+.input:focus::-webkit-input-placeholder {
     .input-focus
 }
 
-.new-term-input:focus::-moz-placeholder {
+.input:focus::-moz-placeholder {
     .input-focus
 }
 
-.new-term-input:focus::-ms-input-placeholder {
+.input:focus::-ms-input-placeholder {
     .input-focus
+}
+
+@media screen and (max-width: 1024px) {
+    .background {
+        left: 50%;
+        margin-left: -512px;
+    }
+    .description {
+        width: 50%;
+        margin: 0 auto;
+    }
+    h1 {
+        font-size: 400%;
+    }
 }

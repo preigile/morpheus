@@ -1,9 +1,9 @@
-var user = {
+var allUsers = {
     show: function (req, res) {
-        res.render('index.ejs', {
+        res.render('login.ejs', {
             title: 'Welcome'
         });
     }
 };
 
-module.exports = user;
+module.exports = allUsers;
