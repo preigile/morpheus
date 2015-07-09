@@ -1,0 +1,27 @@
+<div class="content">
+	<div class="background">
+		<header class='description'>
+			<h1>The Simple Terms Control System</h1>
+		</header>
+
+		<div class="login">
+			<h2>Let's get started.</h2>
+			<span>{{#link-to 'login'}}Login with Facebook{{/link-to}}</span>
+			<span>| {{#link-to 'login'}}Login with Twitter{{/link-to}}</span>
+			<div class="login-or"><p>OR</p></div>
+			{{input class="input login-input login-input-email" type="email" value="" placeholder="e-mail"}}
+			{{input class="input login-input login-input-name" type="text" value="" placeholder="username"}}
+		    {{input class="input login-input login-input-password1" type="password" value="" placeholder="password"}}
+		    {{input class="input login-input login-input-password2" type="password" value="" placeholder="password"}}
+		    <div class="login-item">
+			    {{input class="login-input-rememberme" type="checkbox"}}
+			    <span>Remember me |</span>
+			    {{#link-to 'login'}}Forgot your password?{{/link-to}}
+		    </div>
+		    {{input class="login-input login-submit" type="submit" name="" value="Login"}}
+		    <p>Not a member? {{#link-to 'login'}}Sign up now!{{/link-to}}</p>
+		</div>
+	</div>
+</div>
+
+<footer></footer>

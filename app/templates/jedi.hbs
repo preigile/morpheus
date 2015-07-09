@@ -1,0 +1,30 @@
+<form action="/jedi" method="POST" class="new-term">
+    {{input class="input new-term-input" type="text" value=term placeholder="Add term"}}
+    {{input class="new-term-submit" type="submit" value="+"}}<br style="clear: both;">
+</form>
+
+<div class="terms">
+    <div class="terms-left">
+    	{{#each terms}}
+    	{{#if hasValue}}
+    		<div class="terms-right">
+		        <div class="terms-right-term right">
+		            {{#link-to 'index'}}{{term}}{{/link-to}}
+		            {{input class="terms-delete" type="submit" value="X"}}
+		        </div>
+		        <div class="terms-value right">
+		            {{value}}
+		        </div>
+		    </div>
+		{{else}}
+	        <div class="terms-left-term left">
+	            {{#link-to 'index'}}{{term}}{{/link-to}}
+		        {{input class="terms-delete" type="submit" value="X"}}
+	        </div>
+	        <div class="terms-value left">
+	            {{value}}
+	        </div>
+        {{/if}}
+        {{/each}}
+    </div>
+</div>

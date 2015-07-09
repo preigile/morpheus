@@ -1,22 +1,40 @@
 {
-  "name": "Morpheus",
+  "name": "morpheus",
   "version": "0.0.1",
-  "dependencies": {
-    "express": "~4.4.1",
-    "ejs": "~1.0.0",
-    "body-parser": "~1.4.3",
-    "mongoose": "~3.8.14",
-    "coffee-script": "~1.7.1"
+  "description": "The Simple Terms Control System",
+  "private": true,
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
   },
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember test"
+  },
+  "repository": "https://github.com/preigile/morpheus",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": "Irina Chichikova <diva.artim@gmail.com>",
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-compress": "~0.13.0",
-    "grunt-contrib-concat": "~0.5.1",
-    "grunt-contrib-copy": "~0.8.0",
-    "grunt-contrib-less": "~1.0.1",
-    "grunt-contrib-uglify": "~0.9.1",
-    "grunt-contrib-watch": "~0.6.1",
-    "load-grunt-tasks": "~3.2.0"
+    "broccoli-asset-rev": "^2.0.2",
+    "ember-cli": "0.2.7",
+    "ember-cli-app-version": "0.3.3",
+    "ember-cli-babel": "^5.0.0",
+    "ember-cli-content-security-policy": "0.4.0",
+    "ember-cli-dependency-checker": "^1.0.0",
+    "ember-cli-htmlbars": "0.7.6",
+    "ember-cli-ic-ajax": "0.1.1",
+    "ember-cli-inject-live-reload": "^1.3.0",
+    "ember-cli-less": "^1.3.3",
+    "ember-cli-md5": "^0.1.0",
+    "ember-cli-qunit": "0.3.13",
+    "ember-cli-uglify": "^1.0.1",
+    "ember-data": "1.0.0-beta.18",
+    "ember-disable-proxy-controllers": "^1.0.0",
+    "ember-export-application-global": "^1.0.2",
+    "express": "^4.13.1",
+    "mongoose": "^4.0.6"
   }
 }
